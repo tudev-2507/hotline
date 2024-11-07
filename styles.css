@@ -1,0 +1,257 @@
+/* Reset các kiểu mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cấu trúc tổng thể */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to right, #FF7F50, #FFD700);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Đảm bảo trang có chiều cao đầy đủ */
+    overflow-x: hidden;
+    overflow-y: auto;  /* Đảm bảo trang web có thể cuộn */
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 102, 204, 0.9);
+    padding: 40px 0;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; /* Đảm bảo phần tử header ở đúng vị trí */
+    z-index: 10; /* Đảm bảo header luôn ở trên cùng */
+    animation: slideIn 1s ease-out forwards; /* Animation hiệu ứng cho header */
+}
+
+/* Tiêu đề trong header */
+header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    animation: textGlow 2s infinite alternate;
+}
+
+/* Hiệu ứng ánh sáng chữ */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+    }
+}
+
+/* Hiệu ứng slide-in cho header */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%); /* Bắt đầu từ trên */
+    }
+    100% {
+        transform: translateY(0); /* Dừng lại tại vị trí ban đầu */
+    }
+}
+
+/* Menu Navigation */
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 30px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 30px;
+    font-size: 1.3em;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: #ffcc00;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
+/* Main content */
+main {
+    flex-grow: 1;
+    padding: 50px 0;
+    animation: fadeInMain 2s ease-in-out;
+    z-index: 1;
+}
+
+@keyframes fadeInMain {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Emergency service sections */
+.emergency-service {
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    padding: 40px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    animation: fadeInSection 2s ease-out forwards;
+    transform: scale(0.98);
+}
+
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.emergency-service:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng hover cho các số điện thoại */
+.emergency-service ul li {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.emergency-service ul li:hover {
+    transform: translateX(15px);
+    color: #0066cc;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Phần Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+    animation: fadeInFooter 2s ease-out;
+}
+
+footer .social-links {
+    margin-top: 10px;
+}
+
+footer .social-links a {
+    text-decoration: none;
+    color: #ffcc00;
+    font-size: 1.5em;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+footer .social-links a:hover {
+    transform: scale(1.2);
+    color: #fff;
+    background-color: #0066cc;
+}
+
+/* Hiệu ứng khi cuộn trang - Animation cho các phần tử */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hiệu ứng khi cuộn trang cho từng phần */
+.emergency-service {
+    opacity: 0;
+    animation: slideUp 1s ease-in-out forwards;
+}
+
+ul li {
+    opacity: 0;
+    animation: slideUp 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Hiệu ứng background động */
+@keyframes bgAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+body {
+    background-size: 200% 100%;
+    animation: bgAnimation 15s linear infinite;
+}
+
+/* 3D Effect khi di chuột vào các phần tử */
+.emergency-service:hover {
+    transform: translateY(-10px) rotate(3deg);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Thêm hiệu ứng chữ khi cuộn vào */
+h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 2em;
+    color: #0066cc;
+    font-weight: bold;
+    animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}

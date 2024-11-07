@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang quản trị số điện thoại khẩn cấp tại Thanh Hóa">
+    <title>Admin - Quản lý Số Khẩn Cấp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Trang Quản Trị</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="#">Quản Lý</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="admin-section">
+            <div class="container">
+                <h2>Quản Lý Số Điện Thoại Khẩn Cấp</h2>
+                <form id="emergencyForm">
+                    <label for="serviceName">Tên Dịch Vụ:</label>
+                    <input type="text" id="serviceName" placeholder="Nhập tên dịch vụ" required>
+
+                    <label for="serviceNumber">Số Điện Thoại:</label>
+                    <input type="tel" id="serviceNumber" placeholder="Nhập số điện thoại" required>
+
+                    <button type="submit">Thêm Dịch Vụ</button>
+                </form>
+
+                <div id="message"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Thanh Hóa Emergency Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simulate adding data to a database (for demonstration purposes)
+        document.getElementById('emergencyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const serviceName = document.getElementById('serviceName').value;
+            const serviceNumber = document.getElementById('serviceNumber').value;
+            
+            // Simulating storing and displaying a message
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `<p>Dịch vụ <strong>${serviceName}</strong> với số điện thoại <strong>${serviceNumber}</strong> đã được thêm thành công!</p>`;
+
+            // Reset form
+            document.getElementById('emergencyForm').reset();
+        });
+    </script>
+</body>
+</html>
